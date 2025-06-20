@@ -125,9 +125,16 @@ const SignUpPage = () => {
 
             {/* SUBMIT */}
             <div className="mt-4 space-y-2">
-              <button type="submit" className="btn btn-primary btn-sm w-full">
-                {isPending ? "Signing up..." : "Create Account"}
-              </button>
+              <button className="btn btn-primary w-full" type="submit">
+                  {isPending ? (
+                    <>
+                      <span className="loading loading-spinner loading-xs"></span>
+                      Loading...
+                    </>
+                  ) : (
+                    "Create Account"
+                  )}
+                </button>
               <p className="text-center text-xs">
                 Already have an account?{' '}
                 <Link to="/login" className="text-primary hover:underline">
