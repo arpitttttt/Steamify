@@ -85,9 +85,9 @@ export async function login(req, res) {
 
     res.cookie("jwt", token, {
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      httpOnly: true, // prevent XSS attacks,
-      sameSite: "strict", // prevent CSRF attacks
-      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      sameSite: "lax",        // changed from 'strict'
+      secure: false,          // use true in production with HTTPS
     });
 
     res.status(200).json({ success: true, user });
@@ -96,6 +96,7 @@ export async function login(req, res) {
     res.status(500).json({ message: "Internal Server Error" });
   }
 }
+
 
 export function logout(req, res) {
   res.clearCookie("jwt");

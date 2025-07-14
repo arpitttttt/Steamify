@@ -1,6 +1,5 @@
 
 import { Navigate, Route, Routes } from "react-router";
-
 import toast,{ Toaster } from "react-hot-toast";
 import HomePage from "./pages/HomePage.jsx";
 import SignUpPage from "./pages/SignUpPage.jsx";

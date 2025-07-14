@@ -21,8 +21,8 @@ export const getAuthUser = async () => {
   } catch (error) {
     console.log("Error in getAuthUser:", error);
     return null;
-  }
-};
+  }  
+};  
 
 export const completeOnboarding = async (userData) => {
   const response = await axiosInstance.post("/auth/onboarding", userData);
@@ -40,9 +40,10 @@ export async function getRecommendedUsers() {
 }
 
 export async function getOutgoingFriendReqs() {
-  const response = await axiosInstance.get("/users/outgoing-friend-requests");
+  const response = await axiosInstance.get("/users/outgoing-requests");
   return response.data;
 }
+
 
 export async function sendFriendRequest(userId) {
   const response = await axiosInstance.post(`/users/friend-request/${userId}`);
